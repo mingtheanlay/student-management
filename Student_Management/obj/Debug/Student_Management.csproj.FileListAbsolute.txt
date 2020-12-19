@@ -1,0 +1,10 @@
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\obj\Debug\Student_Management.csprojAssemblyReference.cache
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\obj\Debug\Student_Management.Form1.resources
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\obj\Debug\Student_Management.Properties.Resources.resources
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\obj\Debug\Student_Management.csproj.GenerateResource.cache
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\obj\Debug\Student_Management.csproj.CoreCompileInputs.cache
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\bin\Debug\Student_Management.exe.config
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\bin\Debug\Student_Management.exe
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\bin\Debug\Student_Management.pdb
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\obj\Debug\Student_Management.exe
+C:\Users\Mingthean Lay\source\repos\Student_Management\Student_Management\obj\Debug\Student_Management.pdb

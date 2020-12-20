@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,7 +69,7 @@
             this.label1.Location = new System.Drawing.Point(405, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(518, 39);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Royal University of Phnom Penh";
             // 
             // label2
@@ -78,7 +79,7 @@
             this.label2.Location = new System.Drawing.Point(36, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 20);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Student Name";
             // 
             // label3
@@ -88,7 +89,7 @@
             this.label3.Location = new System.Drawing.Point(36, 283);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 20);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Address";
             // 
             // label4
@@ -98,7 +99,7 @@
             this.label4.Location = new System.Drawing.Point(36, 332);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 20);
-            this.label4.TabIndex = 4;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Phone Number";
             // 
             // label5
@@ -108,7 +109,7 @@
             this.label5.Location = new System.Drawing.Point(36, 381);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 20);
-            this.label5.TabIndex = 5;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Academic Year";
             // 
             // label6
@@ -118,7 +119,7 @@
             this.label6.Location = new System.Drawing.Point(36, 584);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(227, 20);
-            this.label6.TabIndex = 6;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Search the student by \"Name\":";
             // 
             // label8
@@ -128,7 +129,7 @@
             this.label8.Location = new System.Drawing.Point(545, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(198, 25);
-            this.label8.TabIndex = 8;
+            this.label8.TabIndex = 0;
             this.label8.Text = "Student Information";
             // 
             // txtStuName
@@ -137,7 +138,7 @@
             this.txtStuName.Location = new System.Drawing.Point(198, 143);
             this.txtStuName.Name = "txtStuName";
             this.txtStuName.Size = new System.Drawing.Size(361, 26);
-            this.txtStuName.TabIndex = 9;
+            this.txtStuName.TabIndex = 1;
             // 
             // txtStuAddress
             // 
@@ -145,7 +146,7 @@
             this.txtStuAddress.Location = new System.Drawing.Point(198, 277);
             this.txtStuAddress.Name = "txtStuAddress";
             this.txtStuAddress.Size = new System.Drawing.Size(361, 26);
-            this.txtStuAddress.TabIndex = 9;
+            this.txtStuAddress.TabIndex = 4;
             // 
             // txtStuPhone
             // 
@@ -153,7 +154,7 @@
             this.txtStuPhone.Location = new System.Drawing.Point(198, 326);
             this.txtStuPhone.Name = "txtStuPhone";
             this.txtStuPhone.Size = new System.Drawing.Size(361, 26);
-            this.txtStuPhone.TabIndex = 9;
+            this.txtStuPhone.TabIndex = 5;
             // 
             // txtSearchName
             // 
@@ -161,7 +162,7 @@
             this.txtSearchName.Location = new System.Drawing.Point(279, 581);
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(280, 26);
-            this.txtSearchName.TabIndex = 9;
+            this.txtSearchName.TabIndex = 12;
             // 
             // btnReset
             // 
@@ -169,7 +170,7 @@
             this.btnReset.Location = new System.Drawing.Point(462, 496);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(83, 29);
-            this.btnReset.TabIndex = 10;
+            this.btnReset.TabIndex = 11;
             this.btnReset.Text = " Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             // 
@@ -179,7 +180,7 @@
             this.btnInsert.Location = new System.Drawing.Point(40, 496);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(83, 29);
-            this.btnInsert.TabIndex = 10;
+            this.btnInsert.TabIndex = 8;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
             // 
@@ -189,7 +190,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(177, 496);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(91, 29);
-            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -210,7 +211,7 @@
             this.label7.Location = new System.Drawing.Point(36, 429);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 20);
-            this.label7.TabIndex = 5;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Department";
             // 
             // cboDepartment
@@ -238,7 +239,7 @@
             this.cboDepartment.Location = new System.Drawing.Point(198, 421);
             this.cboDepartment.Name = "cboDepartment";
             this.cboDepartment.Size = new System.Drawing.Size(198, 28);
-            this.cboDepartment.TabIndex = 11;
+            this.cboDepartment.TabIndex = 7;
             // 
             // label9
             // 
@@ -247,7 +248,7 @@
             this.label9.Location = new System.Drawing.Point(36, 193);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 20);
-            this.label9.TabIndex = 2;
+            this.label9.TabIndex = 0;
             this.label9.Text = "Gender";
             // 
             // label10
@@ -257,7 +258,7 @@
             this.label10.Location = new System.Drawing.Point(36, 237);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 20);
-            this.label10.TabIndex = 2;
+            this.label10.TabIndex = 0;
             this.label10.Text = "D.O.B";
             // 
             // txtDob
@@ -266,7 +267,7 @@
             this.txtDob.Location = new System.Drawing.Point(198, 231);
             this.txtDob.Name = "txtDob";
             this.txtDob.Size = new System.Drawing.Size(361, 26);
-            this.txtDob.TabIndex = 9;
+            this.txtDob.TabIndex = 3;
             // 
             // cboYear
             // 
@@ -281,7 +282,7 @@
             this.cboYear.Location = new System.Drawing.Point(198, 373);
             this.cboYear.Name = "cboYear";
             this.cboYear.Size = new System.Drawing.Size(70, 28);
-            this.cboYear.TabIndex = 11;
+            this.cboYear.TabIndex = 6;
             // 
             // dgvStudent
             // 
@@ -300,7 +301,7 @@
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.ReadOnly = true;
             this.dgvStudent.Size = new System.Drawing.Size(745, 464);
-            this.dgvStudent.TabIndex = 12;
+            this.dgvStudent.TabIndex = 13;
             // 
             // StuName
             // 
@@ -363,10 +364,11 @@
             this.cboGender.Location = new System.Drawing.Point(198, 185);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(87, 28);
-            this.cboGender.TabIndex = 11;
+            this.cboGender.TabIndex = 2;
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnInsert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1351, 662);
@@ -393,8 +395,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1367, 701);
+            this.MinimumSize = new System.Drawing.Size(1367, 701);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Student Information";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -14,8 +14,7 @@ namespace Student_Management
 {
     public partial class Form1 : Form
     {
-        List<Student> lstStudent = new List<Student>();
-        int stuCount = 0;
+        Student student;
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-4O3O983;Initial Catalog=studentdb;Integrated Security=True");
 
         public Form1()
@@ -26,8 +25,21 @@ namespace Student_Management
             btnInsert.Click += BtnInsert_Click;
             btnUpdate.MouseClick += BtnUpdate_MouseClick;
             btnDelete.Click += BtnDelete_Click;
+            btnLogout.Click += BtnLogout_Click;
             dgvStudent.CellMouseClick += DgvStudent_CellMouseClick;
             txtSearchName.TextChanged += TxtSearchName_TextChanged;
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Are you sure?",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.Show();
+            }
         }
 
         private void TxtSearchName_TextChanged(object sender, EventArgs e)
@@ -53,26 +65,35 @@ namespace Student_Management
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            try
+            String name = txtStuName.Text.ToString();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + name + "?", "Are you sure?", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(dialogResult == DialogResult.Yes)
             {
-                conn.Open();
-                String name = txtStuName.Text.ToString();
-                String qry = "delete from student where s_name='" + name + "'";
-                SqlCommand sc = new SqlCommand(qry, conn);
-                int i = sc.ExecuteNonQuery();
-                if (i >= 1)
-                    MessageBox.Show(i + " Student Deleted Successfully : " + name);
-                else
-                    MessageBox.Show(" Student  Deletion Failed..... ");
-                ClearTextBoxes(this);
-                ShowData();
-                conn.Close();
-            }
-            catch (System.Exception exp)
-            {
-                MessageBox.Show(" Error is  " + exp.ToString());
-
-            }
+                try
+                {
+                    conn.Open();
+                    String qry = "delete from student where s_name='" + name + "'";
+                    SqlCommand sc = new SqlCommand(qry, conn);
+                    int i = sc.ExecuteNonQuery();
+                    if (i >= 1)
+                    {
+                        MessageBox.Show(i + " Student Deleted Successfully : " + name, "Deleted",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }   
+                    else
+                    {
+                        MessageBox.Show(" Student  Deletion Failed..... ");
+                    }
+                    ClearTextBoxes(this);
+                    ShowData();
+                    conn.Close();
+                }
+                catch (System.Exception exp)
+                {
+                    MessageBox.Show(" Error is  " + exp.ToString());
+                }
+            }     
         }
 
         private void DgvStudent_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -96,24 +117,25 @@ namespace Student_Management
         {
             try
             {
+                student = new Student();
+                student.Name = txtStuName.Text;
+                student.Gender = cboGender.SelectedItem.ToString();
+                student.Dob = txtDob.Text;
+                student.Address = txtStuAddress.Text;
+                student.Phone = txtStuPhone.Text;
+                student.Year = cboYear.SelectedItem.ToString();
+                student.Department = cboDepartment.SelectedItem.ToString();
+
+                string qry = "update student set gender='" + student.Gender + "', dob='" + student.Dob + "', s_address='"
+                    + student.Address + "', phone='" + student.Phone + "', year='" + student.Year + "', department='" +
+                     student.Department + "'where s_name='" + student.Name + "'";
+
                 conn.Open();
-                string name = txtStuName.Text;
-                string gender = cboGender.SelectedItem.ToString();
-                string dob = txtDob.Text;
-                string address = txtStuAddress.Text;
-                string phone = txtStuPhone.Text;
-                string year = cboYear.SelectedItem.ToString();
-                string department = cboDepartment.SelectedItem.ToString();
-
-                string qry = "update student set gender='" + gender + "', dob='" + dob + "', s_address='"
-                    + address + "', phone='" + phone + "', year='" + year + "', department='" +
-                    department + "'where s_name='" + name +"'";
-
                 SqlCommand sc = new SqlCommand(qry, conn);
                 int i = sc.ExecuteNonQuery();
                 if (i >= 1)
                 {
-                    MessageBox.Show(i + " Student Updated Successfully : " + name);
+                    MessageBox.Show(i + " Student Updated Successfully : " + student.Name);
                 }      
                 else
                 {
@@ -134,33 +156,32 @@ namespace Student_Management
         {
             try
             {
+         
+                student = new Student();
+                student.Name = txtStuName.Text;
+                student.Gender = cboGender.SelectedItem.ToString();
+                student.Dob = txtDob.Text;
+                student.Address = txtStuAddress.Text;
+                student.Phone = txtStuPhone.Text;
+                student.Year = cboYear.SelectedItem.ToString();
+                student.Department = cboDepartment.SelectedItem.ToString();
+
+                string qry = "insert into student values('" + student.Name + "','" + student.Gender + "','" + student.Dob + "','"
+                    + student.Address + "','" + student.Phone + "','" + student.Year + "','" + student.Department + "')";
+
                 conn.Open();
-                string name = txtStuName.Text;
-                string gender = cboGender.SelectedItem.ToString();
-                string dob = txtDob.Text;
-                string address = txtStuAddress.Text;
-                string phone = txtStuPhone.Text;
-                string year = cboYear.SelectedItem.ToString();
-                string department = cboDepartment.SelectedItem.ToString();
-
-                lstStudent.Add(new Student(name, gender, dob, address, phone, year, department));
-
-                string qry = "insert into student values('" + lstStudent[stuCount].Name + "','" + lstStudent[stuCount].Gender + "','" + lstStudent[stuCount].Dob + "','" 
-                    + lstStudent[stuCount].Address + "','" + lstStudent[stuCount].Phone + "','" + lstStudent[stuCount].Year + "','" + lstStudent[stuCount].Department + "')";
-
                 SqlCommand sc = new SqlCommand(qry, conn);
 
                 int i = sc.ExecuteNonQuery();
                 if (i >= 1)
                 {
-                    MessageBox.Show(i + " Student Registerd Successfully : " + name);
+                    MessageBox.Show(i + " Student Registerd Successfully : " + student.Name);
                 }
                 else
                 {
                     MessageBox.Show(" Student is not Registered: ");
                 }
 
-                stuCount++;
                 ClearTextBoxes(this);
                 conn.Close();
                 ShowData();
@@ -174,7 +195,6 @@ namespace Student_Management
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-            this.dgvStudent.Rows.Clear();
             ClearTextBoxes(this);
             ShowData();
         }
@@ -203,7 +223,6 @@ namespace Student_Management
             foreach (DataRow dr in dt.Rows)
             {
                 int n = dgvStudent.Rows.Add();
-
                 dgvStudent.Rows[n].Cells[0].Value = dr[0].ToString();
                 dgvStudent.Rows[n].Cells[1].Value = dr[1].ToString();
                 dgvStudent.Rows[n].Cells[2].Value = dr[2].ToString();

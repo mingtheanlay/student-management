@@ -59,6 +59,7 @@
             this.AcademicYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboGender = new System.Windows.Forms.ComboBox();
+            this.btnLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -366,12 +367,23 @@
             this.cboGender.Size = new System.Drawing.Size(87, 28);
             this.cboGender.TabIndex = 2;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(1238, 620);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(101, 30);
+            this.btnLogout.TabIndex = 14;
+            this.btnLogout.Text = "Log Out";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnInsert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1351, 662);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.dgvStudent);
             this.Controls.Add(this.cboGender);
             this.Controls.Add(this.cboYear);
@@ -438,6 +450,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn AcademicYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Department;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
 

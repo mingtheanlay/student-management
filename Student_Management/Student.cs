@@ -24,15 +24,9 @@ namespace Student_Management
         public string Gender { get => gender; set => gender = value; }
         public string Dob { get => dob; set => dob = value; }
 
-        public Student(string name, string gender, string dob, string address, string phone, string year, string department)
+        public Student()
         {
-            this.Name = name;
-            this.Gender = gender;
-            this.Dob = dob;
-            this.Address = address;
-            this.Phone = phone;
-            this.Year = year;
-            this.Department = department;
+
         }
     }
 }

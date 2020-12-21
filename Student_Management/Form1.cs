@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
 
 namespace Student_Management
 {
@@ -21,16 +20,16 @@ namespace Student_Management
         {
             InitializeComponent();
             ShowData();
-            btnReset.Click += BtnReset_Click;
-            btnInsert.Click += BtnInsert_Click;
-            btnUpdate.MouseClick += BtnUpdate_MouseClick;
-            btnDelete.Click += BtnDelete_Click;
-            btnLogout.Click += BtnLogout_Click;
-            dgvStudent.CellMouseClick += DgvStudent_CellMouseClick;
-            txtSearchName.TextChanged += TxtSearchName_TextChanged;
+            btnReset.Click += Reset;
+            btnInsert.Click += Insert;
+            btnUpdate.Click += Update;
+            btnDelete.Click += Delete;
+            btnLogout.Click += Logout;
+            dgvStudent.CellMouseClick += DgvDataSelector;
+            txtSearchName.TextChanged += Search;
         }
 
-        private void BtnLogout_Click(object sender, EventArgs e)
+        private void Logout(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Are you sure?",
                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -42,7 +41,7 @@ namespace Student_Management
             }
         }
 
-        private void TxtSearchName_TextChanged(object sender, EventArgs e)
+        private void Search(object sender, EventArgs e)
         {
             conn.Open();
             SqlDataAdapter sda = new SqlDataAdapter("select * from student where s_name like '%" +
@@ -63,7 +62,7 @@ namespace Student_Management
             conn.Close();
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
+        private void Delete(object sender, EventArgs e)
         {
             String name = txtStuName.Text.ToString();
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + name + "?", "Are you sure?", 
@@ -85,7 +84,7 @@ namespace Student_Management
                     {
                         MessageBox.Show(" Student  Deletion Failed..... ");
                     }
-                    ClearTextBoxes(this);
+                    btnReset.PerformClick();
                     ShowData();
                     conn.Close();
                 }
@@ -96,9 +95,9 @@ namespace Student_Management
             }     
         }
 
-        private void DgvStudent_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DgvDataSelector(object sender, DataGridViewCellMouseEventArgs e)
         {
-            ClearTextBoxes(this);
+            btnReset.PerformClick();
             DataGridViewRow row = dgvStudent.Rows[e.RowIndex];
             if (e.RowIndex >= 0)
             {
@@ -113,7 +112,7 @@ namespace Student_Management
         }
 
 
-        private void BtnUpdate_MouseClick(object sender, MouseEventArgs e)
+        private void Update(object sender, EventArgs e)
         {
             try
             {
@@ -142,7 +141,7 @@ namespace Student_Management
                     MessageBox.Show(" Student  Updation Fail..... ");
                 }
 
-                ClearTextBoxes(this);
+                btnReset.PerformClick();
                 conn.Close();
                 ShowData();
             }
@@ -152,7 +151,7 @@ namespace Student_Management
             }
         }
            
-        private void BtnInsert_Click(object sender, EventArgs e)
+        private void Insert(object sender, EventArgs e)
         {
             try
             {
@@ -182,7 +181,7 @@ namespace Student_Management
                     MessageBox.Show(" Student is not Registered: ");
                 }
 
-                ClearTextBoxes(this);
+                btnReset.PerformClick();
                 conn.Close();
                 ShowData();
             }
@@ -193,25 +192,20 @@ namespace Student_Management
             }
         }
 
-        private void BtnReset_Click(object sender, EventArgs e)
+        private void Reset(object sender, EventArgs e)
         {
-            ClearTextBoxes(this);
-            ShowData();
-        }
-
-        public void ClearTextBoxes(Form form)
-        {
-            foreach (Control control in form.Controls)
+            foreach (Control control in this.Controls)
             {
                 if (control.GetType() == typeof(TextBox))
                 {
                     ((TextBox)(control)).Text = "";
                 }
-                if(control.GetType() == typeof(ComboBox))
+                if (control.GetType() == typeof(ComboBox))
                 {
                     ((ComboBox)(control)).SelectedIndex = -1;
                 }
             }
+            ShowData();
         }
 
         public void ShowData()

@@ -15,14 +15,19 @@ namespace Student_Management
         public Login()
         {
             InitializeComponent();
+
+            string username;
+            string password;
+
             txtPassword.PasswordChar = '\u25CF';
-            btnLogin.Click += BtnLogin_Click;
+            btnLogin.Click += Login_Click;
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e)
+        private void Login_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
+
             User user = new User();
 
             if (username == user.Username && password == user.Password)

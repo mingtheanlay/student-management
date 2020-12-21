@@ -13,5 +13,10 @@ namespace Student_Management
 
         public string Username { get => username; }
         public string Password { get => password; }
+
+        public User()
+        {
+
+        }
     }
 }

@@ -4,7 +4,7 @@ CREATE TABLE student (
 	gender VARCHAR(10), 
 	dob VARCHAR(50),  
 	s_address VARCHAR(50),  
-	phonee VARCHAR(50),
+	phone VARCHAR(50),
 	year VARCHAR(50), 
 	department VARCHAR(50),
 );
